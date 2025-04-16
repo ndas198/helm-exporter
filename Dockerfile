@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY helm_status_exporter.py .
 COPY helm_status.sh /scripts/helm_status.sh
-
+RUN chmod 777 /scripts/helm_status.sh
 EXPOSE 9110
 
 CMD ["python", "helm_status_exporter.py"]
