@@ -2,7 +2,7 @@
 
 helm list --all-namespaces --output json | jq -r '.[] | [.namespace, .name, .status] | @tsv' | while IFS=$'\t' read -r namespace release status; do
     metric_name="helm_release_status"
-    labels="namespace=\"$namespace\",release=\"$release\""
+    labels="namespace=\"$namespace\",release=\"$release\",status=\"$status\""
     if [[ "$status" == "failed" ]]; then
         value=1
     else
