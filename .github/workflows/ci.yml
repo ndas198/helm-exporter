@@ -19,4 +19,4 @@ jobs:
 
       - uses: actions/checkout@v2
       - name: Build Container image
-        run: docker buildx build --tag ghcr.io/ndas198/helm-exporter:0.4.1 . --push
+        run: docker buildx build --tag ghcr.io/ndas198/helm-exporter:0.5.1 . --push
