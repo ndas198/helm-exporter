@@ -6,7 +6,7 @@ helm list --all-namespaces --output json | jq -r '
   @tsv' | while IFS=$'\t' read -r namespace release status revision app_version chart; do
 
     chart_version="${chart##*-}"
-    metric_name="helm_release_status_code"
+    metric_name="helm_release_status"
     labels="namespace=\"$namespace\",release=\"$release\",status=\"$status\",revision=\"$revision\",app_version=\"$app_version\",chart_version=\"$chart_version\""
 
     # Normalize status to lowercase and replace spaces with dashes
